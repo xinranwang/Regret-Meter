@@ -3,6 +3,7 @@ package com.xinranwang.regretmeter;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -12,7 +13,6 @@ import android.widget.Toast;
 public class AddRegret extends Activity implements OnClickListener {
 	
 	EditText regret;
-	Button cancelButton;
 	Button addButton;
 
 	@Override
@@ -20,13 +20,22 @@ public class AddRegret extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_regret);
 		
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		
 		regret = (EditText) this.findViewById(R.id.regret_input);
-		cancelButton = (Button) this.findViewById(R.id.cancel_input_regret_button);
+		
 		addButton = (Button) this.findViewById(R.id.add_regret_button);
 		
-		cancelButton.setOnClickListener(this);
 		addButton.setOnClickListener(this);
 		
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if(item.getItemId() == android.R.id.home) {
+			finish();
+		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	@Override
@@ -38,9 +47,7 @@ public class AddRegret extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		if (v == cancelButton) {
-			finish();
-		} else if (v == addButton) {
+		if (v == addButton) {
 			Toast t = Toast.makeText(this,"Add Button Clicked!",Toast.LENGTH_SHORT);
 			t.show();
 		}

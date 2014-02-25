@@ -24,12 +24,6 @@
         android:layout_height="wrap_content" >
 
         <Button
-            android:id="@+id/cancel_input_regret_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cancel" />
-
-        <Button
             android:id="@+id/add_regret_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
